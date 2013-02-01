@@ -27,7 +27,7 @@ for (var i = 0; i < h.snapshotLength; i++)
 	h.snapshotItem(i).setAttribute("colspan", parseInt(h.snapshotItem(i).getAttribute("colspan"))+parseInt(2));
 
 
-// now link for every episode
+// now get every episode rows
 var allEpisodes, thisEpisode;
 allEpisodes = document.evaluate("//table[@class='mylist']/tbody/tr[@class!='header']", document, null, XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE, null);
 
