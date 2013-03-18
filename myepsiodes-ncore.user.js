@@ -1,5 +1,5 @@
 // ==UserScript==
-// @version		1.0
+// @version		1.1
 // @author		Daniel Vasarhelyi
 // @name		nCore search (HU)
 // @namespace		http://userscripts.org/users/293336
@@ -41,4 +41,8 @@ for (var i = 0; i < allEpisodes.snapshotLength; i++) {
 	// insert icon before the first <td class="status"> - the 'A' checkbox
 	var anchor = document.evaluate("./td[@class='status'][1]", episode_line, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
 	anchor.parentNode.insertBefore(td, anchor);
+
+	// onClick trigger to check "acquired" checkbox
+	var acquired_id = document.evaluate("./input/@id", anchor, null, XPathResult.STRING_TYPE, null).stringValue;
+	link.setAttribute('onmousedown','document.getElementById("'+acquired_id+'").checked = true');
 }
